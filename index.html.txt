@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>GAMING!</h1>
+<p>Shh secret gaming test</p>
+</body>
+</html>
