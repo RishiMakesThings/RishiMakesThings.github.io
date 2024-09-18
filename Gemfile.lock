@@ -302,7 +302,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  github-pages (~> 232)
+  github-pages
   jekyll-feed
   jekyll-seo-tag
   jekyll-sitemap

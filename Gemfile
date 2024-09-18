@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 source "https://rubygems.org"
 
+gem "github-pages", group: :jekyll_plugins
 gem "jemoji"
-gem 'github-pages', '~> 232'
 gem "jekyll-seo-tag"
 gem "jekyll-sitemap"
 gem "jekyll-feed"
