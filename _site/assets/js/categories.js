@@ -1,4 +1,4 @@
-const categories = { fiction: [{ url: `/posts/the-purpose-of-education/`, date: `12 Dec 1948`, title: `The Purpose of Education`},],jekyll: [{ url: `/posts/jekyll-markdown/`, date: `18 Sep 2024`, title: `Remind Rishi How to Markdown`},{ url: `/posts/the-purpose-of-education/`, date: `12 Dec 1948`, title: `The Purpose of Education`},],Test_Post: [{ url: `/posts/jekyll-markdown/`, date: `18 Sep 2024`, title: `Remind Rishi How to Markdown`},],first_post: [{ url: `/posts/jekyll-markdown/`, date: `18 Sep 2024`, title: `Remind Rishi How to Markdown`},], }
+const categories = { fiction: [{ url: `/site/posts/the-purpose-of-education/`, date: `12 Dec 1948`, title: `The Purpose of Education`},],jekyll: [{ url: `/site/posts/jekyll-markdown/`, date: `18 Sep 2024`, title: `Remind Rishi How to Markdown`},{ url: `/site/posts/the-purpose-of-education/`, date: `12 Dec 1948`, title: `The Purpose of Education`},],Test_Post: [{ url: `/site/posts/jekyll-markdown/`, date: `18 Sep 2024`, title: `Remind Rishi How to Markdown`},],first_post: [{ url: `/site/posts/jekyll-markdown/`, date: `18 Sep 2024`, title: `Remind Rishi How to Markdown`},], }
 
 console.log(categories)
 
