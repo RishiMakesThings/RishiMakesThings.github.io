@@ -1,0 +1,23 @@
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/racc-1.6.0/ext/racc/cparse
+/usr/local/opt/ruby/bin/ruby extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/racc-1.6.0/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-ami2y sitelibdir\=./.gem.20240905-90510-ami2y clean
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/racc-1.6.0/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-ami2y sitelibdir\=./.gem.20240905-90510-ami2y
+compiling cparse.c
+warning: unknown warning option '-Wno-cast-function-type'; did you mean '-Wno-bad-function-cast'? [-Wunknown-warning-option]
+1 warning generated.
+linking shared-object racc/cparse.bundle
+ld: warning: dylib (/usr/local/Cellar/ruby/3.3.4/lib/libruby.3.3.dylib) was built for newer macOS version (14.0) than being linked (11.1)
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/racc-1.6.0/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-ami2y sitelibdir\=./.gem.20240905-90510-ami2y install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20240905-90510-ami2y/racc
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/racc-1.6.0/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-ami2y sitelibdir\=./.gem.20240905-90510-ami2y clean

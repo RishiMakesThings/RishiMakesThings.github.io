@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Rishi Zone | Blog</title>
+  
+  <link rel="stylesheet" href="/assets/css/blog.css" />
+  
+  <link rel="stylesheet" href="/assets/css/common.css" />
+  <script src="/assets/js/categories.js"></script>
+  <script>
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme) {
+      document.documentElement.setAttribute(
+        "data-theme",
+        localStorage.getItem("theme")
+      );
+    }
+  </script>
+  
+</head>
+
+  <body>
+    <main>
+      <header>
+  <a class="site-title" href="/">The Rishi Zone</a>
+  <!-- dark/light mode -->
+  <span id="dark-mode-toggle" style="cursor: pointer">
+    <svg
+      stroke="currentColor"
+      fill="currentColor"
+      stroke-width="0"
+      viewBox="0 0 16 16"
+      height="1.2em"
+      width="1.2em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13V2a6 6 0 1 1 0 12z"
+      ></path>
+    </svg>
+  </span>
+</header>
+ <section id="bio">
+  <section id="img-wrapper">
+    <img src="https://pbs.twimg.com/media/FIeab_bUYAALjZK?format=jpg&name=240x240" alt="" />
+  </section>
+  <section id="bio-wrapper">
+    <div id="text-wrapper"> <p> Welcome to my terrible mind cube! Here are the links to all my things and some posts from the terrible inner workings of my brain. </p> <br/> <p> Follow me at the links below! (Or dont I don't control you yet) </p> </div>
+    <div id="social-wrapper">
+      
+      <a href="https://www.linkedin.com/in/rishi-israni112" target="_blank">
+        <img src="/assets/icons/linkedin.png" alt="" />
+      </a>
+      
+      <a href="https://github.com/bbaaaii" target="_blank">
+        <img src="/assets/icons/github.png" alt="" />
+      </a>
+      
+      <a href="https://twitter.com/iamsharadraj" target="_blank">
+        <img src="/assets/icons/twitter.png" alt="" />
+      </a>
+      
+      <a href="mailto:rishi@sanjobanjo.com" target="_blank">
+        <img src="/assets/icons/email.png" alt="" />
+      </a>
+      
+    </div>
+  </section>
+</section>
+
+      <section class="articles">
+        
+        <article class="article">
+          <h2 class="article-title">
+            <a href="/posts/jekyll-markdown/"> Remind Rishi How to Markdown </a>
+          </h2>
+          <small class="date">18 Sep 2024</small>
+          <div class="categories">
+            
+            <a href="#!" data-base-url="" class="category"
+              >jekyll</a
+            >
+            
+            <a href="#!" data-base-url="" class="category"
+              >Test Post</a
+            >
+            
+            <a href="#!" data-base-url="" class="category"
+              >first post</a
+            >
+            
+          </div>
+        </article>
+        
+        <article class="article">
+          <h2 class="article-title">
+            <a href="/posts/the-purpose-of-education/"> The Purpose of Education </a>
+          </h2>
+          <small class="date">12 Dec 1948</small>
+          <div class="categories">
+            
+            <a href="#!" data-base-url="" class="category"
+              >fiction</a
+            >
+            
+            <a href="#!" data-base-url="" class="category"
+              >jekyll</a
+            >
+            
+          </div>
+        </article>
+        
+      </section>
+      <footer>
+  <p>&copy; 1947 - 2024 | The Rishi Zone</p>
+</footer>
+<script src="/assets/js/mode.js" defer></script>
+
+    </main>
+    <section id="category-modal-bg"></section>
+<section id="category-modal">
+  <h1 id="category-modal-title"></h1>
+  <section id="category-modal-content"></section>
+</section>
+
+  </body>
+</html>

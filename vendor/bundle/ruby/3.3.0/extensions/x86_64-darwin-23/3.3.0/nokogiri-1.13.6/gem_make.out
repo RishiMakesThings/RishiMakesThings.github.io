@@ -1,0 +1,127 @@
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.6/ext/nokogiri
+/usr/local/opt/ruby/bin/ruby extconf.rb --use-system-libraries
+checking for whether -std=c99 is accepted as CFLAGS... no
+checking for whether -Wno-declaration-after-statement is accepted as CFLAGS... no
+checking for whether -g is accepted as CFLAGS... no
+checking for whether -Winline is accepted as CFLAGS... no
+checking for whether -Wmissing-noreturn is accepted as CFLAGS... no
+checking for whether -Wno-error=unused-command-line-argument-hard-error-in-future is accepted as CFLAGS... no
+checking for whether -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2 is accepted as CPPFLAGS... no
+Building nokogiri using system libraries.
+checking for gzdopen() in -lz... yes
+checking for xmlParseDoc() in -lxml2... yes
+checking for xsltParseStylesheetDoc() in -lxslt... yes
+checking for exsltFuncRegister() in -lexslt... yes
+Using mini_portile version 2.8.7
+---------- IMPORTANT NOTICE ----------
+Building Nokogiri with a packaged version of libgumbo-1.0.0-nokogiri.
+Configuration options: --enable-shared --disable-static
+[]
+Copying gumbo-parser files into tmp/x86_64-apple-darwin23/ports/libgumbo/1.0.0-nokogiri/gumbo-parser...
+Running 'compile' for libgumbo 1.0.0-nokogiri... OK
+Activating libgumbo 1.0.0-nokogiri (from ports/x86_64-darwin23/libgumbo/1.0.0-nokogiri)...
+checking for whether -I/Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.6/ext/nokogiri/ports/x86_64-darwin23/libgumbo/1.0.0-nokogiri/include is accepted as CPPFLAGS... no
+checking for gumbo_parse_with_options() in gumbo.h... yes
+checking for xmlHasFeature()... yes
+checking for xmlFirstElementChild()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetValidStructuredErrors()... yes
+checking for xmlSchemaSetValidStructuredErrors()... yes
+checking for xmlSchemaSetParserStructuredErrors()... yes
+checking for vasprintf()... yes
+checking for whether -DNOKOGIRI_OTHER_LIBRARY_VERSIONS="\"libgumbo:1.0.0-nokogiri\"" is accepted as CPPFLAGS... no
+creating Makefile
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.6/ext/nokogiri
+make DESTDIR\= sitearchdir\=./.gem.20240905-24356-egz4rc sitelibdir\=./.gem.20240905-24356-egz4rc clean
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.6/ext/nokogiri
+make DESTDIR\= sitearchdir\=./.gem.20240905-24356-egz4rc sitelibdir\=./.gem.20240905-24356-egz4rc
+compiling gumbo.c
+warning: unknown warning option '-Wno-cast-function-type'; did you mean '-Wno-bad-function-cast'? [-Wunknown-warning-option]
+gumbo.c:100:31: error: implicit declaration of function 'gumbo_status_to_string' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+  const char *status_string = gumbo_status_to_string(output->status);
+                              ^
+gumbo.c:100:62: error: no member named 'status' in 'struct GumboInternalOutput'
+  const char *status_string = gumbo_status_to_string(output->status);
+                                                     ~~~~~~  ^
+gumbo.c:101:19: error: no member named 'status' in 'struct GumboInternalOutput'
+  switch (output->status) {
+          ~~~~~~  ^
+gumbo.c:106:34: error: too few arguments to function call, expected 2, have 1
+      gumbo_destroy_output(output);
+      ~~~~~~~~~~~~~~~~~~~~       ^
+/usr/local/include/gumbo.h:665:1: note: 'gumbo_destroy_output' declared here
+void gumbo_destroy_output(const GumboOptions* options, GumboOutput* output);
+^
+gumbo.c:109:34: error: too few arguments to function call, expected 2, have 1
+      gumbo_destroy_output(output);
+      ~~~~~~~~~~~~~~~~~~~~       ^
+/usr/local/include/gumbo.h:665:1: note: 'gumbo_destroy_output' declared here
+void gumbo_destroy_output(const GumboOptions* options, GumboOutput* output);
+^
+gumbo.c:205:86: error: no member named 'name' in 'GumboElement'
+        xml_child = xmlNewDocNode(doc, NULL, (const xmlChar *)gumbo_child->v.element.name, NULL);
+                                                              ~~~~~~~~~~~~~~~~~~~~~~ ^
+gumbo.c:271:7: error: use of undeclared identifier 'GumboError'
+      GumboError *err = errors->data[i];
+      ^
+gumbo.c:271:19: error: use of undeclared identifier 'err'
+      GumboError *err = errors->data[i];
+                  ^
+gumbo.c:272:38: error: implicit declaration of function 'gumbo_error_position' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+      GumboSourcePosition position = gumbo_error_position(err);
+                                     ^
+gumbo.c:272:59: error: use of undeclared identifier 'err'; did you mean 'erf'?
+      GumboSourcePosition position = gumbo_error_position(err);
+                                                          ^~~
+                                                          erf
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/math.h:437:15: note: 'erf' declared here
+extern double erf(double);
+              ^
+gumbo.c:272:27: error: initializing 'GumboSourcePosition' with an expression of incompatible type 'int'
+      GumboSourcePosition position = gumbo_error_position(err);
+                          ^          ~~~~~~~~~~~~~~~~~~~~~~~~~
+gumbo.c:274:21: error: implicit declaration of function 'gumbo_caret_diagnostic_to_string' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+      size_t size = gumbo_caret_diagnostic_to_string(err, input_str, input_len, &msg);
+                    ^
+gumbo.c:274:54: error: use of undeclared identifier 'err'; did you mean 'erf'?
+      size_t size = gumbo_caret_diagnostic_to_string(err, input_str, input_len, &msg);
+                                                     ^~~
+                                                     erf
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/math.h:437:15: note: 'erf' declared here
+extern double erf(double);
+              ^
+gumbo.c:278:32: error: implicit declaration of function 'gumbo_error_code' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+      const char *error_code = gumbo_error_code(err);
+                               ^
+gumbo.c:278:49: error: use of undeclared identifier 'err'; did you mean 'erf'?
+      const char *error_code = gumbo_error_code(err);
+                                                ^~~
+                                                erf
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/math.h:437:15: note: 'erf' declared here
+extern double erf(double);
+              ^
+gumbo.c:278:19: warning: incompatible integer to pointer conversion initializing 'const char *' with an expression of type 'int' [-Wint-conversion]
+      const char *error_code = gumbo_error_code(err);
+                  ^            ~~~~~~~~~~~~~~~~~~~~~
+gumbo.c:307:36: error: too few arguments to function call, expected 2, have 1
+  gumbo_destroy_output(args->output);
+  ~~~~~~~~~~~~~~~~~~~~             ^
+/usr/local/include/gumbo.h:665:1: note: 'gumbo_destroy_output' declared here
+void gumbo_destroy_output(const GumboOptions* options, GumboOutput* output);
+^
+gumbo.c:327:11: error: no member named 'max_attributes' in 'struct GumboInternalOptions'
+  options.max_attributes = NUM2INT(max_attributes);
+  ~~~~~~~ ^
+gumbo.c:329:11: error: no member named 'max_tree_depth' in 'struct GumboInternalOptions'
+  options.max_tree_depth = NUM2INT(max_depth);
+  ~~~~~~~ ^
+gumbo.c:521:19: error: implicit declaration of function 'gumbo_compute_quirks_mode' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+    quirks_mode = gumbo_compute_quirks_mode(
+                  ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+2 warnings and 20 errors generated.
+make: *** [gumbo.o] Error 1
+
+make failed, exit code 2

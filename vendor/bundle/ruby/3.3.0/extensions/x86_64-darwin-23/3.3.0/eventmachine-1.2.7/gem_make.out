@@ -1,0 +1,20 @@
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+/usr/local/opt/ruby/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-rqbb8i sitelibdir\=./.gem.20240905-90510-rqbb8i clean
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-rqbb8i sitelibdir\=./.gem.20240905-90510-rqbb8i
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.bundle
+ld: warning: dylib (/usr/local/Cellar/ruby/3.3.4/lib/libruby.3.3.dylib) was built for newer macOS version (14.0) than being linked (11.1)
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-rqbb8i sitelibdir\=./.gem.20240905-90510-rqbb8i install
+/usr/bin/install -c -m 0755 fastfilereaderext.bundle ./.gem.20240905-90510-rqbb8i
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-rqbb8i sitelibdir\=./.gem.20240905-90510-rqbb8i clean

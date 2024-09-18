@@ -1,0 +1,27 @@
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+/usr/local/opt/ruby/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-wd7v4q sitelibdir\=./.gem.20240905-90510-wd7v4q clean
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-wd7v4q sitelibdir\=./.gem.20240905-90510-wd7v4q
+compiling ruby_http_parser.c
+warning: unknown warning option '-Wno-cast-function-type'; did you mean '-Wno-bad-function-cast'? [-Wunknown-warning-option]
+ruby_http_parser.c:365:17: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'long' [-Wsign-compare]
+    if (nparsed < len)
+        ~~~~~~~ ^ ~~~
+2 warnings generated.
+compiling ryah_http_parser.c
+warning: unknown warning option '-Wno-cast-function-type'; did you mean '-Wno-bad-function-cast'? [-Wunknown-warning-option]
+1 warning generated.
+linking shared-object ruby_http_parser.bundle
+ld: warning: dylib (/usr/local/Cellar/ruby/3.3.4/lib/libruby.3.3.dylib) was built for newer macOS version (14.0) than being linked (11.1)
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-wd7v4q sitelibdir\=./.gem.20240905-90510-wd7v4q install
+/usr/bin/install -c -m 0755 ruby_http_parser.bundle ./.gem.20240905-90510-wd7v4q
+
+current directory: /Users/bai/COMP/jekyll-theme-serial-programmer/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20240905-90510-wd7v4q sitelibdir\=./.gem.20240905-90510-wd7v4q clean
