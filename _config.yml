@@ -18,7 +18,6 @@ collections:
     output: true
 
 url: https://RishiMakesThings.github.io  # the base hostname and protocol for your site, e.g. http://example.com
-baseurl: /site   
 
 defaults:
   - scope:
