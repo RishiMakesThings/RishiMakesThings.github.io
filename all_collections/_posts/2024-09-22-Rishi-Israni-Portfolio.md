@@ -10,7 +10,7 @@ I am a passionate **Computer Science** and **Biotechnology** student at the **Un
 
 As a **Biotechnology Intern** at the Garvan Institute of Medical Research, I collaborated with clinical genetics teams to optimize patient data processing systems. This involved using **Large Language Models (LLMs)** to streamline patient acceptance processes and developing custom JavaScript extensions to reduce manual data entry. My efforts resulted in significant time savings for the team and improved data accuracy across research projects.
 
-In my free time, I enjoy working on personal projects to make my life better, including discord bots, the odd game here and there and this website!
+In my free time, I enjoy working on personal projects to make my life better, including discord bots, the odd game here and there and [this website](./)!
 
 If you want to see more, checkout my github [here](https://github.com/RishiMakesThings)!
 
