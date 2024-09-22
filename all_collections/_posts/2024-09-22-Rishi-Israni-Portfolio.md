@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Rishi Israni Portfolio
-date: 2024-09-22 14:09:00
-categories: [serious]
+date: 2024-09-22
+categories: ["serious"]
 ---
 ## About Me
 
