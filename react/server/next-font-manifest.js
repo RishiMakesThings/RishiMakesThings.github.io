@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/home/runner/work/friendmap/friendmap/friendmap/src/app/layout":["static/media/4b2a774852d1c06b-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
