@@ -25,4 +25,6 @@ defaults:
     values:
       layout: "post"
       permalink: /posts/:title/
+include: 
+  - _next
 exclude: ["sitemap.xml", "feed.xml", "LICENSE", "README.md"]
