@@ -13,6 +13,6 @@ So I made an embedding database!! of publicly available nutrition research, arti
 
 I then used that database in a RAG pipeline to create a site that can convince you any food is secretly evil or secretly awesome.
 
-The site pulls a lot of outrageous claims from some outrageous articles, and hones in on some really weird nutrition information that might not be common knowledge.
+The site pulls a lot of outrageous claims from some outrageous articles, and hones in on some really weird nutrition information that might not be common knowledge to the average grok.
 
 [Have a look!](../../AwesomeAndEvil) and be sure to click the flip button :]
