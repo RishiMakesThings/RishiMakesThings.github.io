@@ -7,4 +7,4 @@ categories: ["slightly silly", "project"]
 
 <!-- @format -->
 
-[gaming ](../../AwesomeAndEvil.html)
+[gaming ](../../AwesomeAndEvil)

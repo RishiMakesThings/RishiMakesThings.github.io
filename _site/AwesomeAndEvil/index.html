@@ -1,0 +1,729 @@
+<!-- @format -->
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&display=swap");
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #app {
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "DM Serif Display", Georgia, serif;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .scene {
+    width: 100%;
+    max-width: 680px;
+    text-align: center;
+  }
+
+  .headline {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 0.28em;
+  }
+
+  .static-text {
+    color: #fff;
+    white-space: nowrap;
+  }
+  .input-and-mark {
+    display: inline-flex;
+    align-items: baseline;
+    white-space: nowrap;
+    gap: 0 0.28em;
+  }
+
+  #inline-input-wrapper {
+    display: inline-flex;
+    align-items: baseline;
+    position: relative;
+  }
+
+  #sizer {
+    position: absolute;
+    visibility: hidden;
+    white-space: pre;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    pointer-events: none;
+  }
+
+  #inline-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    outline: none;
+    width: 3.5ch;
+    caret-color: transparent;
+    padding: 0;
+    line-height: inherit;
+    transition: border-color 0.4s ease;
+    vertical-align: baseline;
+  }
+
+  #inline-input::placeholder {
+    color: rgba(255, 255, 255, 0.18);
+    font-style: italic;
+  }
+  #inline-input:focus {
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .fake-caret {
+    position: absolute;
+    right: -3px;
+    bottom: 4px;
+    width: 2px;
+    height: 0.78em;
+    background: rgba(255, 255, 255, 0.75);
+    animation: blink 1s step-end infinite;
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+    border-radius: 1px;
+  }
+
+  #inline-input:focus ~ .fake-caret {
+    opacity: 1;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  #typed-food {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.5);
+    display: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 0.78em;
+    background: rgba(255, 255, 255, 0.6);
+    margin-left: 2px;
+    vertical-align: baseline;
+    position: relative;
+    top: 0.06em;
+    border-radius: 1px;
+    display: none;
+  }
+
+  .hint {
+    margin-top: 1.4rem;
+    font-family: "DM Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: rgba(255, 255, 255, 0.18);
+    text-transform: uppercase;
+    animation: fadeUp 2s ease 1.2s both;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    transition: color 0.2s ease;
+  }
+
+  .hint:hover {
+    color: rgba(255, 255, 255, 0.38);
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .loading-dots {
+    display: none;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 2.5rem;
+  }
+
+  .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  .dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes pulse {
+    0%,
+    80%,
+    100% {
+      opacity: 0.15;
+      transform: scale(0.8);
+    }
+    40% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  #answer-block {
+    margin-top: 2.8rem;
+    display: none;
+    animation: fadeUp 0.9s ease 0.2s both;
+  }
+
+  #answer-text {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    font-style: italic;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  #reset-btn {
+    margin-top: 2.2rem;
+    font-family: "DM Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.55rem 1.5rem;
+    cursor: pointer;
+    transition:
+      color 0.25s,
+      border-color 0.25s;
+    display: none;
+  }
+
+  #reset-btn:hover {
+    color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .error-msg {
+    font-family: "DM Mono", monospace;
+    font-size: 0.68rem;
+    color: rgba(255, 80, 80, 0.6);
+    letter-spacing: 0.08em;
+    margin-top: 1.2rem;
+    display: none;
+  }
+
+  /* flip button */
+  #flip-btn {
+    position: fixed;
+    bottom: 1.4rem;
+    left: 1.6rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.22);
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      color 0.2s,
+      border-color 0.2s,
+      transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    line-height: 1;
+    padding: 0;
+    z-index: 10;
+  }
+
+  #flip-btn:hover {
+    color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+
+  #flip-btn.flipped {
+    transform: rotate(180deg);
+    border-color: rgba(0, 0, 0, 0.18);
+    color: rgba(0, 0, 0, 0.35);
+  }
+
+  #flip-btn.flipped:hover {
+    color: rgba(0, 0, 0, 0.65);
+    border-color: rgba(0, 0, 0, 0.4);
+  }
+
+  /* awesome mode — inverted palette */
+  body.awesome-mode #app {
+    background: #fff;
+  }
+
+  body.awesome-mode .static-text {
+    color: #000;
+  }
+
+  body.awesome-mode #inline-input {
+    color: #000;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+  }
+
+  body.awesome-mode #inline-input:focus {
+    border-bottom-color: rgba(0, 0, 0, 0.5);
+  }
+
+  body.awesome-mode #inline-input::placeholder {
+    color: rgba(0, 0, 0, 0.18);
+  }
+
+  body.awesome-mode .fake-caret {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  body.awesome-mode #typed-food {
+    color: rgba(0, 0, 0, 0.45);
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+  }
+
+  body.awesome-mode .typewriter-cursor {
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  body.awesome-mode .hint {
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  body.awesome-mode .hint:hover {
+    color: rgba(0, 0, 0, 0.42);
+  }
+
+  body.awesome-mode .dot {
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  body.awesome-mode #answer-text {
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  body.awesome-mode #reset-btn {
+    color: rgba(0, 0, 0, 0.28);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+
+  body.awesome-mode #reset-btn:hover {
+    color: rgba(0, 0, 0, 0.7);
+    border-color: rgba(0, 0, 0, 0.35);
+  }
+
+  body.awesome-mode .error-msg {
+    color: rgba(200, 30, 30, 0.6);
+  }
+
+  body.awesome-mode #about-btn {
+    color: rgba(0, 0, 0, 0.18);
+  }
+
+  body.awesome-mode #about-btn:hover {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  body.awesome-mode #about-overlay {
+    background: rgba(255, 255, 255, 0.75);
+  }
+
+  body.awesome-mode #about-dialog {
+    background: #f5f5f5;
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  body.awesome-mode #about-dialog h2 {
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  body.awesome-mode #about-dialog p {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  body.awesome-mode #about-close {
+    color: rgba(0, 0, 0, 0.22);
+  }
+
+  body.awesome-mode #about-close:hover {
+    color: rgba(0, 0, 0, 0.55);
+  }
+
+  /* transition for the palette flip */
+  #app,
+  .static-text,
+  #inline-input,
+  .hint,
+  #answer-text,
+  #reset-btn,
+  #about-btn,
+  #about-overlay,
+  #about-dialog,
+  #about-dialog h2,
+  #about-dialog p,
+  #about-close,
+  .dot,
+  .fake-caret {
+    transition:
+      background 0.45s ease,
+      color 0.45s ease,
+      border-color 0.45s ease;
+  }
+
+  /* about button */
+  #about-btn {
+    position: fixed;
+    bottom: 1.4rem;
+    right: 1.6rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.15);
+    font-family: "DM Mono", monospace;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0;
+    text-align: right;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  #about-btn:hover {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  /* overlay */
+  #about-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 100;
+    animation: fadeOverlay 0.25s ease both;
+  }
+
+  #about-overlay.open {
+    display: flex;
+  }
+
+  @keyframes fadeOverlay {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  #about-dialog {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    max-width: 480px;
+    width: 100%;
+    padding: 2.8rem 2.6rem 2.4rem;
+    position: relative;
+    animation: slideUp 0.3s ease both;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #about-dialog h2 {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-weight: 400;
+    font-size: 1.45rem;
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 1.2rem;
+    line-height: 1.25;
+  }
+
+  #about-dialog p {
+    font-family: "DM Mono", monospace;
+    font-size: 0.72rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.9rem;
+  }
+
+  #about-dialog p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  #about-close {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.3rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.2);
+    font-family: "DM Mono", monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0;
+  }
+
+  #about-close:hover {
+    color: rgba(255, 255, 255, 0.55);
+  }
+</style>
+
+<div id="app">
+  <div class="scene">
+    <div class="headline">
+      <span class="static-text">How evil is</span>
+      <span class="input-and-mark">
+        <span id="inline-input-wrapper">
+          <span id="sizer"></span>
+          <input id="inline-input" type="text" placeholder="food" autocomplete="off" spellcheck="false" maxlength="50" />
+          <span class="fake-caret"></span>
+          <span id="typed-food"></span>
+          <span class="typewriter-cursor" id="tw-cursor"></span>
+        </span>
+        <span class="static-text">?</span>
+      </span>
+    </div>
+
+    <button class="hint" id="hint">press enter</button>
+    <div class="error-msg" id="errorMsg">something went wrong — try again</div>
+    <div class="loading-dots" id="loadingDots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <div id="answer-block">
+      <div id="answer-text"></div>
+      <button id="reset-btn">ask another</button>
+    </div>
+  </div>
+
+  <button id="flip-btn" aria-label="Toggle awesome mode" title="Flip the vibe">↻</button>
+  <button id="about-btn" aria-label="About this site">i swear this is more<br />interesting than a<br />chatgpt wrapper</button>
+</div>
+
+<div id="about-overlay" role="dialog" aria-modal="true" aria-labelledby="about-title">
+  <div id="about-dialog">
+    <button id="about-close" aria-label="Close">close</button>
+    <h2 id="about-title">Everything is Awesome, but also Evil</h2>
+    <p>Information is a lot. It is said that given 2 hours anyone can convince you of anything. Anything you eat can be awesome but also evil.</p>
+    <p>
+      Made an embedding database containing tons of publicly available nutrition information and opinions on the health impacts of different foods. In
+      an attempt to highlight how today, every food is awesome but also evil (click the flip button!).
+    </p>
+    <p>
+      Despite giving a language model access to a RAG pipeline with scientific information, it is still a stupid llm, do not trust anything this is a
+      bit.
+    </p>
+  </div>
+</div>
+
+<script>
+  const inlineInput = document.getElementById("inline-input");
+  const sizer = document.getElementById("sizer");
+  const typedFood = document.getElementById("typed-food");
+  const twCursor = document.getElementById("tw-cursor");
+  const hint = document.getElementById("hint");
+  const loadingDots = document.getElementById("loadingDots");
+  const answerBlock = document.getElementById("answer-block");
+  const answerText = document.getElementById("answer-text");
+  const resetBtn = document.getElementById("reset-btn");
+  const errorMsg = document.getElementById("errorMsg");
+  const aboutBtn = document.getElementById("about-btn");
+  const aboutOverlay = document.getElementById("about-overlay");
+  const aboutClose = document.getElementById("about-close");
+
+  const flipBtn = document.getElementById("flip-btn");
+
+  let isAwesome = false;
+
+  let reset = () => {
+    answerBlock.style.display = "none";
+    resetBtn.style.display = "none";
+    typedFood.style.display = "none";
+    twCursor.style.display = "none";
+    inlineInput.style.display = "inline";
+    inlineInput.value = "";
+    resizeInput();
+    hint.style.display = "block";
+    errorMsg.style.display = "none";
+    setTimeout(() => inlineInput.focus(), 50);
+  };
+
+  flipBtn.addEventListener("click", () => {
+    isAwesome = !isAwesome;
+    document.body.classList.toggle("awesome-mode", isAwesome);
+    flipBtn.classList.toggle("flipped", isAwesome);
+
+    // swap the headline word
+    const staticWords = document.querySelectorAll(".static-text");
+    staticWords[0].textContent = isAwesome ? "How awesome is" : "How evil is";
+
+    // swap the about dialog title & copy
+    document.getElementById("about-title").textContent = isAwesome ? "What's so Great About ____?" : "Whats the Problem With ____?";
+
+    // swap placeholder
+    inlineInput.placeholder = isAwesome ? "food" : "food";
+
+    reset();
+  });
+
+  function resizeInput() {
+    const val = inlineInput.value || "";
+    sizer.textContent = val || "____";
+    const w = sizer.offsetWidth;
+    inlineInput.style.width = w + "px";
+  }
+
+  resizeInput();
+  inlineInput.addEventListener("input", resizeInput);
+
+  aboutBtn.addEventListener("click", () => {
+    aboutOverlay.classList.add("open");
+  });
+
+  aboutClose.addEventListener("click", () => {
+    aboutOverlay.classList.remove("open");
+  });
+
+  aboutOverlay.addEventListener("click", (e) => {
+    if (e.target === aboutOverlay) aboutOverlay.classList.remove("open");
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") aboutOverlay.classList.remove("open");
+  });
+
+  async function runTypewriter(food) {
+    inlineInput.style.display = "none";
+    typedFood.style.display = "inline";
+    twCursor.style.display = "inline-block";
+    typedFood.textContent = "";
+
+    await new Promise((r) => setTimeout(r, 60));
+
+    for (let i = 0; i < food.length; i++) {
+      typedFood.textContent = food.slice(0, i + 1);
+      const delay = 45 + Math.random() * 55;
+      await new Promise((r) => setTimeout(r, delay));
+    }
+
+    await new Promise((r) => setTimeout(r, 250));
+    twCursor.style.display = "none";
+  }
+
+  async function askQuestion(food) {
+    const mode = isAwesome ? "awesome" : "evil";
+    const response = await fetch(`http://192.168.86.31:8000/ask?question=${food}&awesome=${isAwesome}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error?.message || "API error");
+    return data.answer.trim();
+  }
+
+  async function submit() {
+    const food = inlineInput.value.trim();
+    if (!food) return;
+
+    errorMsg.style.display = "none";
+    hint.style.display = "none";
+    inlineInput.blur();
+
+    let answer;
+    try {
+      [answer] = await Promise.all([askQuestion(food), runTypewriter(food)]);
+    } catch (err) {
+      typedFood.style.display = "none";
+      inlineInput.style.display = "inline";
+      resizeInput();
+      hint.style.display = "block";
+      errorMsg.style.display = "block";
+      return;
+    }
+
+    loadingDots.style.display = "flex";
+    await new Promise((r) => setTimeout(r, 500));
+    loadingDots.style.display = "none";
+
+    answerText.textContent = answer;
+    answerBlock.style.display = "block";
+    resetBtn.style.display = "inline-block";
+  }
+
+  inlineInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") submit();
+  });
+
+  hint.addEventListener("click", () => {
+    const food = inlineInput.value.trim();
+    if (food) submit();
+    else inlineInput.focus();
+  });
+
+  resetBtn.addEventListener("click", () => {
+    reset();
+  });
+
+  setTimeout(() => inlineInput.focus(), 100);
+</script>
