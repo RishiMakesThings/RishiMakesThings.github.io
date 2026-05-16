@@ -673,7 +673,7 @@
 
   async function askQuestion(food) {
     const mode = isAwesome ? "awesome" : "evil";
-    const response = await fetch(`http://192.168.86.31:8000/ask?question=${food}&awesome=${isAwesome}`, {
+    const response = await fetch(`https://api.rishimakesthings.dev/ask?question=${food}&awesome=${isAwesome}`, {
       method: "GET",
       headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
     });
